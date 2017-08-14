@@ -7,6 +7,10 @@ class Task extends Component  {
         const desc = this.props.desc;
         this.props.callVerify(desc);
     }
+    handleComplete = () => {
+        
+        this.props.isCompleteFn()
+    }
     render(){
     const bgColor = {
         "high": "lightcoral",
@@ -17,13 +21,17 @@ class Task extends Component  {
             priority,
             desc,
             isComplete,
+            isCompleteFn
         } = this.props;
     return (
         <div className="task">
-            <div className="row" style={{backgroundColor: bgColor[priority]}}>
+            <div className="row" 
+                style={!isComplete ? {backgroundColor: bgColor[priority]} 
+                                  : {backgroundColor: 'lightgrey'}
+                }>
                 <Priority priority={priority} />
                 <p>{desc}</p>
-                <button>{!isComplete ? 'Completed!': 'Uncompleted'}</button>
+                <button onClick={this.handleComplete}>{!isComplete ? 'Completed!': 'Uncompleted'}</button>
             </div>
             <button id="delete"
              onClick={this.handleDel}>X</button>

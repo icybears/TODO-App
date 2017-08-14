@@ -7,10 +7,14 @@ import '../app.css';
 class App extends Component {
    
     state = {
-        tasks: [],
+        tasks: [
+            { desc: "Learn Redux",priority: "high", isComplete: false },
+            { desc: "Learn more vanilla javascript", priority:"low", isComplete: false },
+            { desc: "Apply Redux to React Apps", priority:"high", isComplete: false },
+            { desc: "Learn NodeJS, ExpressJS and MongoDB", priority:"medium", isComplete: false }
+        ],
         applyVerify: null,
         selectedTaskDesc: null
-        
     }
 
     addTask = (desc, priority) => {
@@ -52,8 +56,23 @@ class App extends Component {
                 }
            )
         }, callback)
-        
-    
+    }
+    isCompleteFn = (taskDesc) => {
+        this.setState(
+           (prevState) => {
+            const updatedTasks = prevState.tasks.map( task => {
+                if(task.desc === taskDesc)
+                    task.isComplete = !task.isComplete;
+
+                return task;
+            });
+            return(
+                {
+                    tasks: updatedTasks
+                }
+            )
+           } 
+        )
     }
         
     
@@ -76,6 +95,7 @@ class App extends Component {
                             <Task key={task.desc} 
                                     {...task}
                                     callVerify={this.callVerify}
+                                    isCompleteFn={this.isCompleteFn}
                                     />
                             ) 
                         )
