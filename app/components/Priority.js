@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Priority = () => {
+const Priority = (props) => {
     return (
         <div>
-            <button>+</button>
-            <h4>{props.priorityLevel}</h4>
-            <button>-</button>
+                <select>
+                        <option value="high" selected={props.priority === 'high'}>High</option>
+                        <option value="medium" selected={props.priority === 'medium'}>Medium</option>
+                        <option value="low" selected={props.priority === 'low'}>Low</option>
+                </select>
         </div>
     );
 };

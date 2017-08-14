@@ -14,7 +14,13 @@ class Form extends Component {
     }
  
     handleSubmit = (e) => {
+        const {inputVal, selectVal} = this.state;
         e.preventDefault();
+        this.props.addTask(inputVal, selectVal);
+        this.setState({
+            inputVal: '',
+            selectVal: ''
+        })
     }
     render() {
         return (
@@ -28,7 +34,7 @@ class Form extends Component {
                     value={this.state.selectVal}
                     onChange={this.handleChange}
                     >
-                     <option value="" disabled selected>Priority</option>
+                     <option value="" disabled>Priority</option>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>

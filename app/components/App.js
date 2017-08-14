@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from './Form';
+import Task from './Task';
 import '../app.css';
 
 class App extends Component {
@@ -11,18 +12,19 @@ class App extends Component {
     addTask = (desc, priority) => {
         this.setState( (prevState) => {
             const task = { desc, priority, isComplete: false };
-            return prevState.tasks.concat([task]);
+            return ({
+                tasks: prevState.tasks.concat([task])
+            })
         })
-        console.log(this.state.tasks);
     }
     render() {
         return (
             <div>
                 <h1>TODO App</h1>
-                <Form />
+                <Form addTask={this.addTask}/>
                 <div>
-                    {
-                        
+                    { this.state.tasks.length!==0 &&
+                        this.state.tasks.map( task => <Task key={task.desc} {...task} /> )
                     }
                 </div>
             </div>
