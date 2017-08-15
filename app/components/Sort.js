@@ -7,12 +7,12 @@ class Sort extends Component {
     render(){
         const sortBy = this.props.sortBy;
         return (
-            <div>
-                <select value={sortBy} onChange={this.handleChange} >
+            <div id="sort">
+                <label>Sort by <select value={sortBy} onChange={this.handleChange} >
                     <option value="priority">Priority</option>
                     <option value="recent">Recent</option>
                     <option value="oldest">Oldest</option>
-                </select>
+                </select></label>
             </div>
         );
     }

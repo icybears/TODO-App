@@ -28,7 +28,7 @@ class Task extends Component  {
         <div className="task">
             <div className="row" 
                 style={!isComplete ? {backgroundColor: bgColor[priority]} 
-                                  : {backgroundColor: 'lightgrey'}
+                                  : {backgroundColor: 'rgb(104, 104, 104)'}
                 }>
                 <TaskPriority  desc={desc} priority={priority} 
                            changeTaskPriority={changeTaskPriority}
@@ -36,7 +36,7 @@ class Task extends Component  {
                 <p>{desc}</p>
                 <button id="complete" onClick={this.handleComplete}>{isComplete ? <span>&#10004;</span>: <span></span>}</button>
                 <button id="delete"
-             onClick={this.handleDel}>X</button>
+             onClick={this.handleDel}>x</button>
             </div>
             
         </div>

@@ -3,21 +3,21 @@ import React from 'react';
 const Filter = (props) => {
     const {filter, changeFilter, tasksCount} = props;
     return (
-        <div>
-            <form>
+        <div id="filter">
+            <div className="row">
                 <label><input type="radio" name="Filter" value="all" 
                         checked={filter==='all'? true: false} 
                         onChange={changeFilter.bind(null, 'all')}
-                        /> All ({tasksCount("all")})</label>
+                        />&nbsp;All&nbsp;({tasksCount("all")})</label>
                 <label><input type="radio" name="Filter" value="uncompleted"
                         checked={filter==='uncompleted'? true: false} 
                         onChange={changeFilter.bind(null, 'uncompleted')}
-                        /> Remaining ({tasksCount("uncompleted")})</label>            
+                        />&nbsp;Remaining&nbsp;({tasksCount("uncompleted")})</label>            
                 <label><input type="radio" name="Filter" value="completed"
                         checked={filter==='completed'? true: false} 
                         onChange={changeFilter.bind(null, 'completed')}
-                        /> Completed ({tasksCount("completed")})</label>
-            </form>
+                        />&nbsp;Completed&nbsp;({tasksCount("completed")})</label>
+            </div>
         </div>
     );
 };
