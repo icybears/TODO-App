@@ -35,9 +35,10 @@ class Task extends Component  {
                 />
                 <p>{desc}</p>
                 <button id="complete" onClick={this.handleComplete}>{isComplete ? <span>&#10004;</span>: <span></span>}</button>
-            </div>
-            <button id="delete"
+                <button id="delete"
              onClick={this.handleDel}>X</button>
+            </div>
+            
         </div>
     );
     }

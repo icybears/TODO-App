@@ -8,7 +8,7 @@ const Filter = (props) => {
                 <label><input type="radio" name="Filter" value="all" 
                         checked={filter==='all'? true: false} 
                         onChange={changeFilter.bind(null, 'all')}
-                        /> All ({tasksCount("all")})"</label>
+                        /> All ({tasksCount("all")})</label>
                 <label><input type="radio" name="Filter" value="uncompleted"
                         checked={filter==='uncompleted'? true: false} 
                         onChange={changeFilter.bind(null, 'uncompleted')}
