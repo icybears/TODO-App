@@ -3,6 +3,7 @@ import Form from './Form';
 import Task from './Task';
 import Verify from './Verify';
 import Filter from './Filter';
+import Sort from './Sort';
 import '../app.css';
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
         applyVerify: null,
         selectedTaskDesc: null,
         filter: 'all',
-        orderBy: 'recent',
+        sortBy: 'priority',
     }
 
     addTask = (desc, priority) => {
@@ -111,8 +112,10 @@ class App extends Component {
             "uncompleted": task => !task.isComplete,
             "completed": task => task.isComplete,
             }
-    orderByFn = (order) => {
-        
+    changeSortBy = (type) => {
+        this.setState({
+            sortBy: type
+        })
     }
     render() {
         const filter = this.state.filter;
@@ -121,10 +124,15 @@ class App extends Component {
             <div>
                 <h1>TODO App</h1>
                 <Form addTask={this.addTask}/>
+                <div className="row">
                 <Filter tasksCount={this.tasksCount}
                         filter={this.state.filter}
                         changeFilter={this.changeFilter}
                         />
+                <Sort sortBy={this.state.sortBy} 
+                      changeSortBy={this.changeSortBy} 
+                     />
+                </div>
                 <div>
                     { 
                     this.state.applyVerify &&
