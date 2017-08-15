@@ -13,9 +13,9 @@ class Task extends Component  {
     }
     render(){
     const bgColor = {
-        "high": "lightcoral",
-        "medium": "lightsalmon",
-        "low": "lightpink"
+        "high": "rgb(242, 48, 48)",
+        "medium": "salmon",
+        "low": "lightsalmon"
     }
     const {
             priority,

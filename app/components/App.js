@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from './Form';
 import Task from './Task';
 import Verify from './Verify';
+import Filter from './Filter';
 import '../app.css';
 
 class App extends Component {
@@ -14,7 +15,8 @@ class App extends Component {
             { desc: "Learn NodeJS, ExpressJS and MongoDB", priority:"medium", isComplete: false }
         ],
         applyVerify: null,
-        selectedTaskDesc: null
+        selectedTaskDesc: null,
+        filter: 'all'
     }
 
     addTask = (desc, priority) => {
@@ -88,12 +90,38 @@ class App extends Component {
             )
         } )
     }
+    changeFilter = (filter) => {
+        this.setState({
+                          filter: filter
+                    }
+                    );
+               
+    }
+    filterTasks = (filter) => {
+        const tasks = this.state.tasks;
+        return (tasks.filter(this.filters[filter]))
+    }
+    tasksCount = (filter) => {
+        const tasks = this.state.tasks;
+        return (tasks.filter(this.filters[filter]).length)
+    }
+     filters =  {
+            "all":  task => task,
+            "uncompleted": task => !task.isComplete,
+            "completed": task => task.isComplete,
+            }
     
     render() {
+        const filter = this.state.filter;
+        const tasks = this.filterTasks(filter);
         return (
             <div>
                 <h1>TODO App</h1>
                 <Form addTask={this.addTask}/>
+                <Filter tasksCount={this.tasksCount}
+                        filter={this.state.filter}
+                        changeFilter={this.changeFilter}
+                        />
                 <div>
                     { 
                     this.state.applyVerify &&
@@ -104,14 +132,14 @@ class App extends Component {
                     }
                     { this.state.tasks.length===0 && <div>No Tasks !</div>}
                     { this.state.tasks.length!==0 &&
-                        this.state.tasks.map( task => (
+                        tasks.map( task => 
                             <Task key={task.desc} 
                                     {...task}
                                     callVerify={this.callVerify}
                                     isCompleteFn={this.isCompleteFn}
                                     changeTaskPriority={this.changeTaskPriority}
                                     />
-                            ) 
+                            
                         )
                     }
                 </div>
