@@ -8,8 +8,8 @@ class Task extends Component  {
         this.props.callVerify(desc);
     }
     handleComplete = () => {
-        
-        this.props.isCompleteFn()
+        const desc = this.props.desc;
+        this.props.isCompleteFn(desc);
     }
     render(){
     const bgColor = {
@@ -31,7 +31,7 @@ class Task extends Component  {
                 }>
                 <Priority priority={priority} />
                 <p>{desc}</p>
-                <button onClick={this.handleComplete}>{!isComplete ? 'Completed!': 'Uncompleted'}</button>
+                <button id="complete" onClick={this.handleComplete}>{isComplete ? <span>&#10004;</span>: <span></span>}</button>
             </div>
             <button id="delete"
              onClick={this.handleDel}>X</button>

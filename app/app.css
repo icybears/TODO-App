@@ -16,6 +16,16 @@ body{
     top:0%;
     right:0%;
 }
+.task #complete {
+    font-size: 1.5em;
+    padding:0 6px;
+    width:30px;
+    height:30px;
+}
+.task #complete span{
+    position:relative;
+    top:-5px;
+}
 .verify{
     position:absolute;
     top:0;
