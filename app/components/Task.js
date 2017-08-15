@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import Priority from './Priority';
+import TaskPriority from './TaskPriority';
 
 class Task extends Component  {
     handleDel = () => {
@@ -30,7 +30,7 @@ class Task extends Component  {
                 style={!isComplete ? {backgroundColor: bgColor[priority]} 
                                   : {backgroundColor: 'lightgrey'}
                 }>
-                <Priority  desc={desc} priority={priority} 
+                <TaskPriority  desc={desc} priority={priority} 
                            changeTaskPriority={changeTaskPriority}
                 />
                 <p>{desc}</p>

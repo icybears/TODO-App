@@ -16,7 +16,8 @@ class App extends Component {
         ],
         applyVerify: null,
         selectedTaskDesc: null,
-        filter: 'all'
+        filter: 'all',
+        orderBy: 'recent',
     }
 
     addTask = (desc, priority) => {
@@ -110,7 +111,9 @@ class App extends Component {
             "uncompleted": task => !task.isComplete,
             "completed": task => task.isComplete,
             }
-    
+    orderByFn = (order) => {
+        
+    }
     render() {
         const filter = this.state.filter;
         const tasks = this.filterTasks(filter);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Priority extends Component {
+class TaskPriority extends Component {
 
 
     handleChange = (e) => {
@@ -22,4 +22,4 @@ class Priority extends Component {
     }
 };
 
-export default Priority;
+export default TaskPriority;
