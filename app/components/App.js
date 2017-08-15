@@ -74,7 +74,20 @@ class App extends Component {
            } 
         )
     }
-        
+    changeTaskPriority = (taskDesc, newPriority) => {
+        this.setState((prevState) => {
+            const updatedTasks = prevState.tasks.map( task => {
+                if(task.desc === taskDesc)
+                    task.priority = newPriority;
+                return task;
+            })
+            return(
+                {
+                    tasks: updatedTasks
+                }
+            )
+        } )
+    }
     
     render() {
         return (
@@ -96,6 +109,7 @@ class App extends Component {
                                     {...task}
                                     callVerify={this.callVerify}
                                     isCompleteFn={this.isCompleteFn}
+                                    changeTaskPriority={this.changeTaskPriority}
                                     />
                             ) 
                         )

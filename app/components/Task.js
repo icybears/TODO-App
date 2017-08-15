@@ -21,7 +21,8 @@ class Task extends Component  {
             priority,
             desc,
             isComplete,
-            isCompleteFn
+            isCompleteFn,
+            changeTaskPriority
         } = this.props;
     return (
         <div className="task">
@@ -29,7 +30,9 @@ class Task extends Component  {
                 style={!isComplete ? {backgroundColor: bgColor[priority]} 
                                   : {backgroundColor: 'lightgrey'}
                 }>
-                <Priority priority={priority} />
+                <Priority  desc={desc} priority={priority} 
+                           changeTaskPriority={changeTaskPriority}
+                />
                 <p>{desc}</p>
                 <button id="complete" onClick={this.handleComplete}>{isComplete ? <span>&#10004;</span>: <span></span>}</button>
             </div>
