@@ -23,10 +23,11 @@ h1{
     display: flex;
     justify-content: space-around;
     align-items: center;
+
 }
 .task .row{
-  padding-right:30px;
-    box-sizing: content-box;
+    padding-right:30px;
+    min-height:10%;
 }
 
 .task #complete {
@@ -77,10 +78,10 @@ box-shadow:0 0 8px rgba(0,0,0,0.8);
 }
 
 .task p {
-    padding:0 10px;
-    width:300px;
+    padding:5px 10px;
     text-align:center;
     font-weight: 500;
+    margin: 0 auto;
 }
 label{
     cursor: pointer;
@@ -107,4 +108,36 @@ label{
 }
 form{
     text-align:center;
+}
+.inputForm {
+    width:90%;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    margin: 60px auto 30px auto;
+    box-shadow: 0 0 6px rgba(0,0,0,0.5);
+    padding:10px;
+    max-width:700px;
+
+    
+}
+.inputForm input[type="text"]{
+    font-size: 1.2em;
+    outline: none;
+    background-color: inherit;
+    border: none;
+    border-bottom:2px solid rgb(109, 108, 108);
+    text-align:center;
+    min-width:60px;
+}
+.inputForm input[type="submit"]{
+      background-color:rgb(68, 68, 68);
+      color:white;
+    outline: none;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+   
+
 }

@@ -26,7 +26,7 @@ class Task extends Component  {
         } = this.props;
     return (
         <div className="task">
-            <div className="row" 
+            <div className="row"
                 style={!isComplete ? {backgroundColor: bgColor[priority]} 
                                   : {backgroundColor: 'rgb(104, 104, 104)'}
                 }>

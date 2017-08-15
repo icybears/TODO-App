@@ -143,7 +143,7 @@ class App extends Component {
         
         return (
             <div>
-                <h1>TODO App</h1>
+                <h1>Another TO-DO App</h1>
                 <Form addTask={this.addTask}/>
                 <div className="row">
                 <Filter tasksCount={this.tasksCount}
