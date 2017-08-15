@@ -11,9 +11,10 @@ class App extends Component {
     state = {
         tasks: [
             { desc: "Learn Redux",priority: "high", isComplete: false },
-            { desc: "Learn more vanilla javascript", priority:"low", isComplete: false },
+            { desc: "Improve ES6 knowledge", priority:"low", isComplete: false },
             { desc: "Apply Redux to React Apps", priority:"high", isComplete: false },
-            { desc: "Learn NodeJS, ExpressJS and MongoDB", priority:"medium", isComplete: false }
+            { desc: "Learn NodeJS, ExpressJS and MongoDB", priority:"medium", isComplete: false },
+            { desc: "Learn React",priority: "high", isComplete: true }
         ],
         applyVerify: null,
         selectedTaskDesc: null,
@@ -143,7 +144,7 @@ class App extends Component {
         
         return (
             <div>
-                <h1>Another TO-DO App</h1>
+                <h1>Another TO-DO App</h1><span id="author">by&nbsp;<a href="https://github.com/icybears" target="_blank">icybears</a></span>
                 <Form addTask={this.addTask}/>
                 <div className="row">
                 <Filter tasksCount={this.tasksCount}
