@@ -117,9 +117,30 @@ class App extends Component {
             sortBy: type
         })
     }
+    sortFn = (arr) => {
+        return(
+            {
+                "priority" : (a, b) => {
+                    const priorities = {
+                        "high": 3,
+                        "medium": 2,
+                        "low": 1
+                    }
+                    return (priorities[b.priority] - priorities[a.priority])
+                },
+                "recent": (a, b) => arr.indexOf(b) - arr.indexOf(a),
+                "oldest": (a, b) => arr.indexOf(a) - arr.indexOf(b),
+            }
+        )
+    }
     render() {
         const filter = this.state.filter;
+        const sortBy = this.state.sortBy;
         const tasks = this.filterTasks(filter);
+        const tasksCopy = tasks;
+        const sortedTasks = tasksCopy.sort(this.sortFn(this.state.tasks)[sortBy]);
+        
+        
         return (
             <div>
                 <h1>TODO App</h1>
@@ -143,7 +164,7 @@ class App extends Component {
                     }
                     { this.state.tasks.length===0 && <div>No Tasks !</div>}
                     { this.state.tasks.length!==0 &&
-                        tasks.map( task => 
+                        sortedTasks.map( task => 
                             <Task key={task.desc} 
                                     {...task}
                                     callVerify={this.callVerify}
